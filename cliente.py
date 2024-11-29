@@ -116,6 +116,7 @@ class ClienteChat:
         tk.Label(frame_derecho, text="Conectados", font=("Arial", 12, "bold"), bg="lightgrey").pack(pady=5)
         self.lista_usuarios = tk.Listbox(frame_derecho, font=("Arial", 12,"italic"))
         self.lista_usuarios.pack(fill=tk.BOTH, expand=True, pady=5)
+        self.lista_usuarios.bind('<Double-1>', self.abrir_chat_privado)  # Agregar el binding para doble clic
 
         self.hilo = threading.Thread(target=self.recibir_mensajes)
         self.hilo.start()

@@ -99,7 +99,6 @@ class ServidorChat:
                         self.clientes.remove(cliente)
                         self.sockets_usuarios.pop(cliente, None)
                         cliente.close()
-
         elif mensaje['tipo'] == 'privado':
             # Mensaje privado
             destino = mensaje['destino']
@@ -109,7 +108,6 @@ class ServidorChat:
                 "origen": self.sockets_usuarios.get(socket_cliente, "Desconocido"),
                 "mensaje": mensaje['mensaje']
             })
-
             # Buscar el socket del destinatario en el mapeo `sockets_usuarios`
             for cliente_socket, usuario in self.sockets_usuarios.items():
                 if usuario == destino:
